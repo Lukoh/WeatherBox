@@ -35,7 +35,7 @@ import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
     private static String file_url
-            = "https://shopgate-static.s3.amazonaws.com/worktrail/backend/weather/cities.dat";
+            = "https://raw.githubusercontent.com/Lukoh/WeatherBox/master/cities.dat";
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     mCities = new ArrayList<>();
                     Scanner sc = new Scanner(new File(Environment.getExternalStoragePublicDirectory(
-                            Environment.DIRECTORY_DOWNLOADS).toString() + "/cities.dat"));
+                            Environment.DIRECTORY_DOWNLOADS).toString() + "/Cities.dat"));
                     while (sc.hasNextLine())    {
                         mCities.add(sc.nextLine());
                     }
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
                 InputStream input = new BufferedInputStream(url.openStream(), 8192);
 
                 // Output stream to write file
-                OutputStream output = new FileOutputStream(root + "/City.dat");
+                OutputStream output = new FileOutputStream(root + "/Cities.dat");
                 byte data[] = new byte[1024];
 
                 while ((count = input.read(data)) != -1) {
