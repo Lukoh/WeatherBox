@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion setup.compileSdk
+    buildToolsVersion setup.buildTools
+
+    defaultConfig {
+        applicationId "com.goforer.weatherbox"
+        minSdkVersion  setup.minSdk
+        targetSdkVersion setup.targetSdk
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dexOptions {
+        jumboMode true
+        incremental true
+        javaMaxHeapSize "4g"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile "com.android.support:multidex:1.0.1"
+    compile "com.android.support:appcompat-v7:${versions.supportLib}"
+    compile "com.android.support:design:${versions.supportLib}"
+    compile "com.android.support:support-v4:${versions.supportLib}"
+    compile "com.android.support:support-annotations:${versions.supportLib}"
+    compile "com.android.support:recyclerview-v7:${versions.supportLib}"
+    compile "com.android.support:cardview-v7:${versions.supportLib}"
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.squareup.retrofit2:retrofit:2.0.0'
+    compile 'com.github.bumptech.glide:okhttp-integration:1.2.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+}

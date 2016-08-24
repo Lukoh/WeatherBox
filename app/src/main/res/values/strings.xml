@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WeatherBox</string>
+    <string name="read_file">Read File</string>
+</resources>
