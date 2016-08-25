@@ -20,40 +20,25 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.goforer.base.model.BaseModel;
-import com.google.gson.JsonElement;
 import com.google.gson.annotations.SerializedName;
 
-public class Query extends BaseModel implements Parcelable {
-    @SerializedName("count")
-    private int mCount;
-    @SerializedName("created")
-    private String mCreatedTime;
+public class Error extends BaseModel implements Parcelable {
     @SerializedName("lang")
     private String mLanguage;
-    @SerializedName("results")
-    private JsonElement mResults;
-
-    public int getCount() {
-        return mCount;
-    }
-
-    public String getCreatedTime() {
-        return mCreatedTime;
-    }
-
-    public JsonElement getResults() {
-        return mResults;
-    }
+    @SerializedName("description")
+    private String mDescription;
 
     public String getLanguage() {
         return mLanguage;
     }
 
-    protected Query(Parcel in) {
-        mCount = in.readInt();
-        mCreatedTime = in.readString();
+    public String getDescription() {
+        return mDescription;
+    }
+
+    protected Error(Parcel in) {
         mLanguage = in.readString();
-        mResults = in.readParcelable(JsonElement.class.getClassLoader());
+        mDescription = in.readString();
     }
 
     @Override
@@ -63,22 +48,20 @@ public class Query extends BaseModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(mCount);
-        dest.writeString(mCreatedTime);
         dest.writeString(mLanguage);
-        dest.writeParcelable((Parcelable) mResults, flags);
+        dest.writeString(mDescription);
     }
 
     @SuppressWarnings("unused")
-    public static final Parcelable.Creator<Query> CREATOR = new Parcelable.Creator<Query>() {
+    public static final Parcelable.Creator<Error> CREATOR = new Parcelable.Creator<Error>() {
         @Override
-        public Query createFromParcel(Parcel in) {
-            return new Query(in);
+        public Error createFromParcel(Parcel in) {
+            return new Error(in);
         }
 
         @Override
-        public Query[] newArray(int size) {
-            return new Query[size];
+        public Error[] newArray(int size) {
+            return new Error[size];
         }
     };
 }

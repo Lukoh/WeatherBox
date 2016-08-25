@@ -28,13 +28,51 @@ import retrofit2.Response;
 public enum Intermediary {
     INSTANCE;
 
-    public void getWeatherInfo(Context context, String country, String city, ResponseEvent event) {
+    public void getWeatherInfoWithPlace(Context context, String country, String city, ResponseEvent event) {
         String query =
         "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="
                 + "\"" + country + "," +  city + "\""+ ")";
 
         Call<ResponseClient> call = RequestClient.INSTANCE
                 .getRequestMethod(context).getWeather(query, "json");
+        call.enqueue(new RequestClient.RequestCallback(event) {
+            @Override
+            public void onResponse(Call<ResponseClient> call, Response<ResponseClient> response) {
+                super.onResponse(call, response);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseClient> call, Throwable t) {
+                super.onFailure(call, t);
+            }
+        });
+    }
+
+    public void getWeatherInfoWithWoeid(Context context, String woeid, ResponseEvent event) {
+        String query =
+                "select * from weather.forecast where woeid =" + woeid;
+
+        Call<ResponseClient> call = RequestClient.INSTANCE
+                .getRequestMethod(context).getWeather(query, "json");
+        call.enqueue(new RequestClient.RequestCallback(event) {
+            @Override
+            public void onResponse(Call<ResponseClient> call, Response<ResponseClient> response) {
+                super.onResponse(call, response);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseClient> call, Throwable t) {
+                super.onFailure(call, t);
+            }
+        });
+    }
+
+    public void getWoeid(Context context, String place, ResponseEvent event) {
+        String query =
+                "select * from geo.places where text=" + "\"" + place + "\"";
+
+        Call<ResponseClient> call = RequestClient.INSTANCE
+                .getRequestMethod(context).getWoeid(query, "json");
         call.enqueue(new RequestClient.RequestCallback(event) {
             @Override
             public void onResponse(Call<ResponseClient> call, Response<ResponseClient> response) {

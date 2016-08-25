@@ -111,8 +111,14 @@ public enum RequestClient {
         public void onResponse(Call<ResponseClient> call,
                                retrofit2.Response<ResponseClient> response) {
             if (mEvent != null) {
-                mEvent.setResponseClient(response.body());
-                mEvent.parseInResponse();
+                if (response.body() != null) {
+                    mEvent.setResponseClientType(ResponseEvent.RESPONSE_TYPE_CLIENT_SUCCESS);
+                    mEvent.setResponseClient(response.body());
+                } else {
+                    mEvent.setResponseClientType(ResponseEvent.RESPONSE_TYPE_CLIENT_ERROR);
+                    mEvent.setResponseErrorClient(response.errorBody());
+                }
+
                 EventBus.getDefault().post(mEvent);
             }
         }
@@ -164,6 +170,11 @@ public enum RequestClient {
     public interface RequestMethod {
         @GET("v1/public/yql")
         Call<ResponseClient> getWeather(
+                @Query("q") String query,
+                @Query("format") String json);
+
+        @GET("v1/public/yql")
+        Call<ResponseClient> getWoeid(
                 @Query("q") String query,
                 @Query("format") String json);
     }
