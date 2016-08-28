@@ -38,6 +38,7 @@ dependencies {
     compile "com.android.support:support-annotations:${versions.supportLib}"
     compile "com.android.support:recyclerview-v7:${versions.supportLib}"
     compile "com.android.support:cardview-v7:${versions.supportLib}"
+    compile "com.google.android.gms:play-services:8.4.0"
     compile "com.google.code.gson:gson:2.4"
     compile "com.squareup.retrofit2:retrofit:2.0.0"
     compile "com.github.bumptech.glide:okhttp-integration:1.2.1"

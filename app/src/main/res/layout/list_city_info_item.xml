@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/city_item_background">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -10,12 +11,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp">
 
+        <com.goforer.weatherbox.ui.view.BezelImageView
+            android:id="@+id/iv_flag"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:clickable="false"
+            android:elevation="1dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="6dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_country"
             android:text="DE"
             android:textSize="18dp"
+            android:layout_marginTop="6dp"
             android:layout_marginLeft="24dp"
             android:textColor="#000000"/>
 
@@ -25,6 +38,7 @@
             android:text="Frank"
             android:id="@+id/tv_city"
             android:textSize="16dp"
+            android:layout_marginTop="6dp"
             android:layout_marginLeft="18dp"
             android:textColor="#303F9F" />
 
@@ -35,7 +49,8 @@
             android:id="@+id/tv_zip"
             android:textSize="16dp"
             android:layout_marginLeft="18dp"
-            android:textColor="#FF5555" />
+            android:textColor="#FF5555"
+            android:visibility="gone" />
 
     </LinearLayout>
 
@@ -52,7 +67,8 @@
             android:text="232.90234234234"
             android:textSize="18dp"
             android:layout_marginLeft="24dp"
-            android:textColor="#000000"/>
+            android:textColor="#000000"
+            android:visibility="gone" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,7 +77,8 @@
             android:id="@+id/tv_latitude"
             android:textSize="18dp"
             android:layout_marginLeft="18dp"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:visibility="gone" />
     </LinearLayout>
 
 </LinearLayout>

@@ -25,6 +25,7 @@ import android.widget.TextView;
 
 import com.goforer.weatherbox.R;
 import com.goforer.weatherbox.model.data.City;
+import com.goforer.weatherbox.ui.view.BezelImageView;
 
 import java.util.ArrayList;
 
@@ -54,6 +55,7 @@ public class CityAdapter extends BaseAdapter {
         TextView tvZip = (TextView) convertView.findViewById(R.id.tv_zip) ;
         TextView tvlongitude = (TextView) convertView.findViewById(R.id.tv_longitude) ;
         TextView tvlatitude = (TextView) convertView.findViewById(R.id.tv_latitude) ;
+        BezelImageView ivFlag = (BezelImageView) convertView.findViewById(R.id.iv_flag);
 
         City cityItem = mCityItem.get(position);
 
@@ -62,6 +64,7 @@ public class CityAdapter extends BaseAdapter {
         tvZip.setText(cityItem.getZip());
         tvlongitude.setText(cityItem.getLongitude());
         tvlatitude.setText(cityItem.getLatitude());
+        ivFlag.setImage(cityItem.getFlagUrl());
 
         return convertView;
     }

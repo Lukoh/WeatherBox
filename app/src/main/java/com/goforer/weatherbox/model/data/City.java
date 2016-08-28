@@ -29,6 +29,7 @@ public class City extends BaseModel implements Parcelable {
     private String mLongitude;
     private String mLatitude;
     private String mDescription;
+    private String mFlagUrl;
 
     public City() {
 
@@ -58,6 +59,10 @@ public class City extends BaseModel implements Parcelable {
         return this.mDescription;
     }
 
+    public String getFlagUrl() {
+        return this.mFlagUrl;
+    }
+
     public void setCountry(String country) {
         this.mCountry = country;
     }
@@ -82,6 +87,10 @@ public class City extends BaseModel implements Parcelable {
         this.mDescription = descrption;
     }
 
+    public void setFlagUrl(String flagUrl) {
+        this.mFlagUrl = flagUrl;
+    }
+
     protected City(Parcel in) {
         mCountry = in.readString();
         mZip = in.readString();
@@ -90,6 +99,7 @@ public class City extends BaseModel implements Parcelable {
         mLongitude = in.readString();
         mLatitude = in.readString();
         mDescription = in.readString();
+        mFlagUrl = in.readString();
     }
 
     @Override
@@ -106,6 +116,7 @@ public class City extends BaseModel implements Parcelable {
         dest.writeString(mLongitude);
         dest.writeString(mLatitude);
         dest.writeString(mDescription);
+        dest.writeString(mFlagUrl);
     }
 
     @SuppressWarnings("unused")

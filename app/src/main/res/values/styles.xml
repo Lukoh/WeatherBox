@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BezelImageView">
+        <item name="biv_mask_drawable">@drawable/material_circle_mask</item>
+        <item name="biv_circular_shadow">true</item>
+        <item name="biv_selectorOnPress">@color/material_primary</item>
+    </style>
+
 </resources>

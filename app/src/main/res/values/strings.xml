@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">WeatherBox</string>
-    <string name="read_file">Read File</string>
+    <string name="read_file">Show Cities</string>
+    <string name="not_connected_internet">Internet connection not available.</string>
     <string name="no_result">There is no information.</string>
     <string name="view_my_location_weather">View my weather</string>
+    <string name="toast_permission_denied">Permission denied.</string>
+    <string name="location_updated_message">Location updated</string>
 </resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BezelImageView">
+        <attr name="biv_mask_drawable" format="reference" />
+        <attr name="biv_circular_shadow" format="boolean" />
+        <attr name="biv_selectorOnPress" format="color|reference" />
+    </declare-styleable>
+</resources>
