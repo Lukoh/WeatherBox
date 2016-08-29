@@ -4,6 +4,7 @@ Show the weather-information of city or my current location's weather-informatio
 ## Notice
 Please visit [MyLocation App](https://github.com/Lukoh/MyLocation) if you'd like to know how to get my current locations's information using Google LocationServices.
 
+#New Feature
 WeatherBox use CustomTab to show the weather information of cities around world. Please visit [Chrome Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) to know how to apply it to your App.
 [Chrome Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) give apps more control over their web experience, and make transitions between native and web content more seamless without having to resort to a WebView.
 
