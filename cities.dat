@@ -8,8 +8,8 @@ DE,61231,Bad Nauheim,8.7497923449015600,50.3763246146135000,https://raw.githubus
 AT,1010,Vienna,16.372778,48.209206,https://raw.githubusercontent.com/Lukoh/WeatherBox/master/ic_austria.png
 NL,1012,Amsterdam,4.8896900,52.3740300,https://raw.githubusercontent.com/Lukoh/WeatherBox/master/ic_netherlands.png
 DK,1000,Copenhagen,12.568337,55.676098,https://raw.githubusercontent.com/Lukoh/WeatherBox/master/ic_denmark.png
-BE,1000Brussels,4.34878,50.85045,
-FI,,Helsinki,24.945831,60.192059,00990,https://raw.githubusercontent.com/Lukoh/WeatherBox/master/ic_finland.png
+BE,1000Brussels,4.34878,50.85045,https://raw.githubusercontent.com/Lukoh/WeatherBox/master/ic_belgie.png
+FI,00990,Helsinki,24.945831,60.192059,00990,https://raw.githubusercontent.com/Lukoh/WeatherBox/master/ic_finland.png
 UK,WC2N,London,51.500083,-0.1257400,https://raw.githubusercontent.com/Lukoh/WeatherBox/master/ic_uk.png
 FR,75001,Paris,48.856638,2.352241,https://raw.githubusercontent.com/Lukoh/WeatherBox/master/ic_france.png
 ES,28000,Madrid,-3.674908,40.411335,https://raw.githubusercontent.com/Lukoh/WeatherBox/master/ic_spain.png
