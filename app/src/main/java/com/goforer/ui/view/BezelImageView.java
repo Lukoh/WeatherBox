@@ -19,7 +19,7 @@
  * Modified and improved with additional functionality by Mike Penz
  */
 
-package com.goforer.weatherbox.ui.view;
+package com.goforer.ui.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;

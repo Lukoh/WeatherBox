@@ -25,7 +25,7 @@ import android.widget.TextView;
 
 import com.goforer.weatherbox.R;
 import com.goforer.weatherbox.model.data.City;
-import com.goforer.weatherbox.ui.view.BezelImageView;
+import com.goforer.ui.view.BezelImageView;
 
 import java.util.ArrayList;
 

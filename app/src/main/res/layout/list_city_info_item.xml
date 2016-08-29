@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp">
 
-        <com.goforer.weatherbox.ui.view.BezelImageView
+        <com.goforer.ui.view.BezelImageView
             android:id="@+id/iv_flag"
             android:layout_width="32dp"
             android:layout_height="32dp"
