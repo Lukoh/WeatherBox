@@ -38,33 +38,37 @@ public class CityAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return mCityItem.size() ;
+        return mCityItem.size();
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder;
         final Context context = parent.getContext();
+        City cityItem = mCityItem.get(position);
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_city_info_item, parent, false);
+            holder = new ViewHolder();
+            holder.tvCountry = (TextView) convertView.findViewById(R.id.tv_country) ;
+            holder.tvCity = (TextView) convertView.findViewById(R.id.tv_city) ;
+            holder.tvZip = (TextView) convertView.findViewById(R.id.tv_zip) ;
+            holder.tvLongitude= (TextView) convertView.findViewById(R.id.tv_longitude) ;
+            holder.tvLatitude = (TextView) convertView.findViewById(R.id.tv_latitude) ;
+            holder.ivFlag = (BezelImageView) convertView.findViewById(R.id.iv_flag);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        TextView tvCountry = (TextView) convertView.findViewById(R.id.tv_country) ;
-        TextView tvCity = (TextView) convertView.findViewById(R.id.tv_city) ;
-        TextView tvZip = (TextView) convertView.findViewById(R.id.tv_zip) ;
-        TextView tvlongitude = (TextView) convertView.findViewById(R.id.tv_longitude) ;
-        TextView tvlatitude = (TextView) convertView.findViewById(R.id.tv_latitude) ;
-        BezelImageView ivFlag = (BezelImageView) convertView.findViewById(R.id.iv_flag);
-
-        City cityItem = mCityItem.get(position);
-
-        tvCountry.setText(cityItem.getCountry());
-        tvCity.setText(cityItem.getCity());
-        tvZip.setText(cityItem.getZip());
-        tvlongitude.setText(cityItem.getLongitude());
-        tvlatitude.setText(cityItem.getLatitude());
-        ivFlag.setImage(cityItem.getFlagUrl());
+        if (holder != null) {
+            holder.tvCountry.setText(cityItem.getCountry());
+            holder.tvCity.setText(cityItem.getCity());
+            holder.tvZip.setText(cityItem.getZip());
+            holder.tvLongitude.setText(cityItem.getLongitude());
+            holder.tvLatitude.setText(cityItem.getLatitude());
+            holder.ivFlag.setImageUrl(cityItem.getFlagUrl());
+        }
 
         return convertView;
     }
@@ -81,5 +85,14 @@ public class CityAdapter extends BaseAdapter {
 
     public void addItem(City city) {
         mCityItem.add(city);
+    }
+
+    static class ViewHolder {
+        TextView tvCountry;
+        TextView tvCity;
+        TextView tvZip;
+        TextView tvLongitude;
+        TextView tvLatitude;
+        BezelImageView ivFlag;
     }
 }

@@ -221,6 +221,10 @@ public class MainActivity extends AppCompatActivity implements
         mReadFileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mListView.getCount() > 0 ) {
+                    return;
+                }
+
                 try {
                     mCities = new ArrayList<>();
                     Scanner sc = new Scanner(new File(Environment.getExternalStoragePublicDirectory(

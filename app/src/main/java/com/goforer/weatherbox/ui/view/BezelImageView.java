@@ -307,7 +307,7 @@ public class BezelImageView extends ImageView {
         super.setImageBitmap(bm);
     }
 
-    public void setImage(String imageUrl) {
+    public void setImageUrl(String imageUrl) {
         if (imageUrl != null) {
             Glide.with(getContext()).load(imageUrl).asBitmap().into(new SimpleTarget<Bitmap>() {
                 @Override
