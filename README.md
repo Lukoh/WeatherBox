@@ -11,6 +11,14 @@ WeatherBox use CustomTab to show the weather information of cities around world.
 
 [Yahoo open Weather API](https://developer.yahoo.com/weather/) and [Yahoo YQL GE0](https://developer.yahoo.com/geo/geoplanet/guide/yql-tables.html) are used into WeatherBox.  
 
+## Libraries
+
+This app leverages third-party libraries:
+
+ * [Retrofit](http://square.github.io/retrofit/) - For asynchronous network requests
+ * [EventBus](http://greenrobot.org/eventbus/) - For communication between Activiteis, Fragments, Servcie, etc
+ * [Glide](https://github.com/bumptech/glide) - For an image loading and caching library for Android focused on smooth scrolling
+
 # License
 ```
 Copyright 2016 Lukoh Nam
