@@ -9,7 +9,7 @@ WeatherBox use CustomTab to show the weather information of cities around world.
 
 [Chrome Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) provides a way for an application to customize and interact with a Chrome Activity on Android. This makes the web content feel like being a part of the application, while retaining the full functionality and performance of a complete web browser.
 
-[Yahoo open Weather API](https://developer.yahoo.com/weather/) and [Yahoo YQL GE0](https://developer.yahoo.com/geo/geoplanet/guide/yql-tables.html)  are used into WeatherBox.  
+[Yahoo open Weather API](https://developer.yahoo.com/weather/) and [Yahoo YQL GE0](https://developer.yahoo.com/geo/geoplanet/guide/yql-tables.html) are used into WeatherBox.  
 
 # License
 ```
