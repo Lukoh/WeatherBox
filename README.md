@@ -4,7 +4,7 @@ Show the weather-information of city or my current location's weather-informatio
 ## Notice
 Please visit to [MyLocation App](https://github.com/Lukoh/MyLocation) if you'd like to know how to get my current locations's information using Google LocationServices.
 
-This App is going to be done by ends of this weekend. 
+[Yahoo open Weather API](https://developer.yahoo.com/weather/) and [Yahoo YQL GE0](https://developer.yahoo.com/geo/geoplanet/guide/yql-tables.html)  are used into WeatherBox.  
 
 # License
 ```
