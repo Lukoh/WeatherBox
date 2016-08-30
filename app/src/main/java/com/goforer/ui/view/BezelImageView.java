@@ -51,7 +51,6 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.goforer.weatherbox.R;
 
-
 /**
  * An {@link android.widget.ImageView} that draws its contents inside a mask and draws a border
  * drawable on top. This is useful for applying a beveled look to image contents, but is also
