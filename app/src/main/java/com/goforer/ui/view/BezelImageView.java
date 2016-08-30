@@ -48,7 +48,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.goforer.weatherbox.R;
 
 
@@ -309,7 +309,8 @@ public class BezelImageView extends ImageView {
 
     public void setImageUrl(String imageUrl) {
         if (imageUrl != null) {
-            Glide.with(getContext()).load(imageUrl).asBitmap().into(new SimpleTarget<Bitmap>() {
+            Glide.with(getContext().getApplicationContext()).load(imageUrl).asBitmap()
+                    .into(new BitmapImageViewTarget(this) {
                 @Override
                 public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
                     setImageBitmap(resource);

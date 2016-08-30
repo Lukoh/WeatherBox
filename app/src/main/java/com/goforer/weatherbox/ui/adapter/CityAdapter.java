@@ -46,45 +46,46 @@ public class CityAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, final ViewGroup parent) {
         ViewHolder holder;
-        final Context context = parent.getContext();
         final City cityItem = mCityItem.get(position);
 
         if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater) parent.getContext()
+                    .getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_city_info_item, parent, false);
             holder = new ViewHolder();
+            holder.mIvFlag = (BezelImageView) convertView.findViewById(R.id.iv_flag);
             holder.mTvCountry = (TextView) convertView.findViewById(R.id.tv_country) ;
             holder.mTvCity = (TextView) convertView.findViewById(R.id.tv_city) ;
             holder.mTvZip = (TextView) convertView.findViewById(R.id.tv_zip) ;
             holder.mTvLongitude= (TextView) convertView.findViewById(R.id.tv_longitude) ;
             holder.mTvLatitude = (TextView) convertView.findViewById(R.id.tv_latitude) ;
-            holder.mIvFlag = (BezelImageView) convertView.findViewById(R.id.iv_flag);
             holder.mIvCityLocation = (ImageView) convertView.findViewById(R.id.iv_view_city_map);
-            holder.mIvCityLocation.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context.getApplicationContext(), MapsActivity.class);
-                    intent.putExtra(MainActivity.EXTRA_LATITUDE,
-                            Double.parseDouble(cityItem.getLatitude()));
-                    intent.putExtra(MainActivity.EXTRA_LONGITUDE,
-                            Double.parseDouble(cityItem.getLongitude()));
-                    context.startActivity(intent);
-                }
-            });
-
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
+        holder.mIvFlag.setImageUrl(cityItem.getFlagUrl());
         holder.mTvCountry.setText(cityItem.getCountry());
         holder.mTvCity.setText(cityItem.getCity());
         holder.mTvZip.setText(cityItem.getZip());
         holder.mTvLongitude.setText(cityItem.getLongitude());
         holder.mTvLatitude.setText(cityItem.getLatitude());
-        holder.mIvFlag.setImageUrl(cityItem.getFlagUrl());
+        holder.mIvCityLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        parent.getContext().getApplicationContext(), MapsActivity.class);
+                intent.putExtra(MainActivity.EXTRA_LATITUDE,
+                        Double.parseDouble(cityItem.getLatitude()));
+                intent.putExtra(MainActivity.EXTRA_LONGITUDE,
+                        Double.parseDouble(cityItem.getLongitude()));
+                parent.getContext()
+                        .getApplicationContext().startActivity(intent);
+            }
+        });
 
         return convertView;
     }
