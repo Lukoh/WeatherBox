@@ -12,6 +12,9 @@ WeatherBox use CustomTab to show the weather information of cities around world.
 
 [Yahoo open Weather API](https://developer.yahoo.com/weather/) and [Yahoo YQL GE0](https://developer.yahoo.com/geo/geoplanet/guide/yql-tables.html) are used into WeatherBox.  
 
+## Demo Video
+Here is [demo video](https://youtu.be/cGWfk2vkhLU). Please watch this demo video if you'd like to know how WeatherBox App runs.
+
 ##Screenshots
 <img src="https://github.com/Lukoh/WeatherBox/blob/master/Screenshot_1.png" alt="Log-in Demo" width="350" />
 &nbsp;
