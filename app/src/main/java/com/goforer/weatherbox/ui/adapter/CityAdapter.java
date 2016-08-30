@@ -17,15 +17,19 @@
 package com.goforer.weatherbox.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.goforer.ui.view.BezelImageView;
 import com.goforer.weatherbox.R;
 import com.goforer.weatherbox.model.data.City;
-import com.goforer.ui.view.BezelImageView;
+import com.goforer.weatherbox.ui.activity.MainActivity;
+import com.goforer.weatherbox.ui.activity.MapsActivity;
 
 import java.util.ArrayList;
 
@@ -45,29 +49,43 @@ public class CityAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         final Context context = parent.getContext();
-        City cityItem = mCityItem.get(position);
+        final City cityItem = mCityItem.get(position);
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_city_info_item, parent, false);
             holder = new ViewHolder();
-            holder.tvCountry = (TextView) convertView.findViewById(R.id.tv_country) ;
-            holder.tvCity = (TextView) convertView.findViewById(R.id.tv_city) ;
-            holder.tvZip = (TextView) convertView.findViewById(R.id.tv_zip) ;
-            holder.tvLongitude= (TextView) convertView.findViewById(R.id.tv_longitude) ;
-            holder.tvLatitude = (TextView) convertView.findViewById(R.id.tv_latitude) ;
-            holder.ivFlag = (BezelImageView) convertView.findViewById(R.id.iv_flag);
+            holder.mTvCountry = (TextView) convertView.findViewById(R.id.tv_country) ;
+            holder.mTvCity = (TextView) convertView.findViewById(R.id.tv_city) ;
+            holder.mTvZip = (TextView) convertView.findViewById(R.id.tv_zip) ;
+            holder.mTvLongitude= (TextView) convertView.findViewById(R.id.tv_longitude) ;
+            holder.mTvLatitude = (TextView) convertView.findViewById(R.id.tv_latitude) ;
+            holder.mIvFlag = (BezelImageView) convertView.findViewById(R.id.iv_flag);
+            holder.mIvCityLocation = (ImageView) convertView.findViewById(R.id.iv_view_city_map);
+            holder.mIvCityLocation.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context.getApplicationContext(), MapsActivity.class);
+                    intent.putExtra(MainActivity.EXTRA_LATITUDE,
+                            Double.parseDouble(cityItem.getLatitude()));
+                    intent.putExtra(MainActivity.EXTRA_LONGITUDE,
+                            Double.parseDouble(cityItem.getLongitude()));
+                    context.startActivity(intent);
+                }
+            });
+
+            convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
         if (holder != null) {
-            holder.tvCountry.setText(cityItem.getCountry());
-            holder.tvCity.setText(cityItem.getCity());
-            holder.tvZip.setText(cityItem.getZip());
-            holder.tvLongitude.setText(cityItem.getLongitude());
-            holder.tvLatitude.setText(cityItem.getLatitude());
-            holder.ivFlag.setImageUrl(cityItem.getFlagUrl());
+            holder.mTvCountry.setText(cityItem.getCountry());
+            holder.mTvCity.setText(cityItem.getCity());
+            holder.mTvZip.setText(cityItem.getZip());
+            holder.mTvLongitude.setText(cityItem.getLongitude());
+            holder.mTvLatitude.setText(cityItem.getLatitude());
+            holder.mIvFlag.setImageUrl(cityItem.getFlagUrl());
         }
 
         return convertView;
@@ -88,11 +106,12 @@ public class CityAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
-        TextView tvCountry;
-        TextView tvCity;
-        TextView tvZip;
-        TextView tvLongitude;
-        TextView tvLatitude;
-        BezelImageView ivFlag;
+        TextView mTvCountry;
+        TextView mTvCity;
+        TextView mTvZip;
+        TextView mTvLongitude;
+        TextView mTvLatitude;
+        BezelImageView mIvFlag;
+        ImageView mIvCityLocation;
     }
 }

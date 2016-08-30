@@ -45,6 +45,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -120,6 +121,9 @@ public class MainActivity extends AppCompatActivity implements
     private final static String KEY_LAST_UPDATED_TIME_STRING
             = "weatherbox::last-updated-time-string";
 
+    public static final String EXTRA_LATITUDE = "weatherbox:latitude";
+    public static final String EXTRA_LONGITUDE = "weatherbox:longitude";
+
     /**
      * Constant used in the location settings dialog.
      */
@@ -175,8 +179,10 @@ public class MainActivity extends AppCompatActivity implements
 
     private String mMyPlace;
 
-    private Button mReadFileButton;
-    private Button mViewMyWeather;
+    private Button mBtnReadFile;
+    private Button mBtnMyWeather;
+
+    private ImageView mIvMyLocation;
 
     private ListView mListView;
 
@@ -198,8 +204,10 @@ public class MainActivity extends AppCompatActivity implements
 
         requestMyLocation(savedInstanceState);
 
-        mReadFileButton = (Button) findViewById(R.id.btn_read);
-        mViewMyWeather = (Button) findViewById(R.id.btn_view_my_weather);
+        mBtnReadFile = (Button) findViewById(R.id.btn_read);
+        mBtnMyWeather = (Button) findViewById(R.id.btn_view_my_weather);
+
+        mIvMyLocation = (ImageView) findViewById(R.id.iv_view_my_map);
 
         mListView = (ListView) findViewById(R.id.lv_cities);
 
@@ -218,7 +226,7 @@ public class MainActivity extends AppCompatActivity implements
             }
         }) ;
 
-        mReadFileButton.setOnClickListener(new View.OnClickListener() {
+        mBtnReadFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mListView.getCount() > 0 ) {
@@ -255,10 +263,11 @@ public class MainActivity extends AppCompatActivity implements
                 }
 
                 mListView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
             }
         });
 
-        mViewMyWeather.setOnClickListener(new View.OnClickListener() {
+        mBtnMyWeather.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 checkLocationSettings();
@@ -268,6 +277,16 @@ public class MainActivity extends AppCompatActivity implements
                 if (mMyPlace != null) {
                     showMyWeather(mMyPlace);
                 }
+            }
+        });
+
+        mIvMyLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                intent.putExtra(EXTRA_LATITUDE, mLatitude);
+                intent.putExtra(EXTRA_LONGITUDE, mLongitude);
+                startActivity(intent);
             }
         });
 

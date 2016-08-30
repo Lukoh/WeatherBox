@@ -27,7 +27,8 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent">
 
                 <Button
                     android:id="@+id/btn_read"
@@ -40,6 +41,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/view_my_location_weather" />
+
+                <ImageView
+                    android:id="@+id/iv_view_my_map"
+                    android:layout_marginLeft="16dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_my_location" />
 
             </LinearLayout>
 
