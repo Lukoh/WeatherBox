@@ -17,7 +17,6 @@
 package com.goforer.weatherbox.ui.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,16 +27,16 @@ import android.widget.TextView;
 import com.goforer.ui.view.BezelImageView;
 import com.goforer.weatherbox.R;
 import com.goforer.weatherbox.model.data.City;
-import com.goforer.weatherbox.ui.activity.MainActivity;
-import com.goforer.weatherbox.ui.activity.MapsActivity;
+import com.goforer.weatherbox.utility.ActivityCaller;
 
 import java.util.ArrayList;
 
 public class CityAdapter extends BaseAdapter {
+    private final Context mContext;
     private ArrayList<City> mCityItem = new ArrayList<>() ;
 
-    public CityAdapter() {
-
+    public CityAdapter(final Context context) {
+        mContext = context;
     }
 
     @Override
@@ -62,6 +61,15 @@ public class CityAdapter extends BaseAdapter {
             holder.mTvLongitude= (TextView) convertView.findViewById(R.id.tv_longitude) ;
             holder.mTvLatitude = (TextView) convertView.findViewById(R.id.tv_latitude) ;
             holder.mIvCityLocation = (ImageView) convertView.findViewById(R.id.iv_view_city_map);
+            holder.mIvCityLocation.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ActivityCaller.INSTANCE.callViewMap(mContext,
+                            Double.parseDouble(cityItem.getLatitude()),
+                            Double.parseDouble(cityItem.getLongitude()));
+                }
+            });
+
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -73,19 +81,6 @@ public class CityAdapter extends BaseAdapter {
         holder.mTvZip.setText(cityItem.getZip());
         holder.mTvLongitude.setText(cityItem.getLongitude());
         holder.mTvLatitude.setText(cityItem.getLatitude());
-        holder.mIvCityLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(
-                        parent.getContext().getApplicationContext(), MapsActivity.class);
-                intent.putExtra(MainActivity.EXTRA_LATITUDE,
-                        Double.parseDouble(cityItem.getLatitude()));
-                intent.putExtra(MainActivity.EXTRA_LONGITUDE,
-                        Double.parseDouble(cityItem.getLongitude()));
-                parent.getContext()
-                        .getApplicationContext().startActivity(intent);
-            }
-        });
 
         return convertView;
     }

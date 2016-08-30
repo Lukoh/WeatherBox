@@ -174,6 +174,8 @@ public class MainActivity extends AppCompatActivity implements
 
     private ProgressDialog mDialog;
 
+    private CityAdapter mAdapter;
+
     private double mLatitude;
     private double mLongitude;
 
@@ -210,6 +212,8 @@ public class MainActivity extends AppCompatActivity implements
         mIvMyLocation = (ImageView) findViewById(R.id.iv_view_my_map);
 
         mListView = (ListView) findViewById(R.id.lv_cities);
+
+        mAdapter = new CityAdapter(this);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -257,13 +261,12 @@ public class MainActivity extends AppCompatActivity implements
                     mCityInfo.add(cityInfo);
                 }
 
-                CityAdapter adapter = new CityAdapter() ;
                 for(City city : mCityInfo) {
-                    adapter.addItem(city);
+                    mAdapter.addItem(city);
                 }
 
-                mListView.setAdapter(adapter);
-                adapter.notifyDataSetChanged();
+                mListView.setAdapter(mAdapter);
+                mAdapter.notifyDataSetChanged();
             }
         });
 
