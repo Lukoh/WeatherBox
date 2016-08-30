@@ -79,14 +79,12 @@ public class CityAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        if (holder != null) {
-            holder.mTvCountry.setText(cityItem.getCountry());
-            holder.mTvCity.setText(cityItem.getCity());
-            holder.mTvZip.setText(cityItem.getZip());
-            holder.mTvLongitude.setText(cityItem.getLongitude());
-            holder.mTvLatitude.setText(cityItem.getLatitude());
-            holder.mIvFlag.setImageUrl(cityItem.getFlagUrl());
-        }
+        holder.mTvCountry.setText(cityItem.getCountry());
+        holder.mTvCity.setText(cityItem.getCity());
+        holder.mTvZip.setText(cityItem.getZip());
+        holder.mTvLongitude.setText(cityItem.getLongitude());
+        holder.mTvLatitude.setText(cityItem.getLatitude());
+        holder.mIvFlag.setImageUrl(cityItem.getFlagUrl());
 
         return convertView;
     }
