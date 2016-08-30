@@ -30,7 +30,7 @@ Here is [demo video](https://youtu.be/cGWfk2vkhLU). Please watch this demo video
 &nbsp;
 <img src="https://github.com/Lukoh/WeatherBox/blob/master/Screenshot_7.png" alt="Log-in Demo" width="350" />
 &nbsp;
-<img src="https://github.com/Lukoh/WeatherBox/blob/master/Screenshot_8.png" alt="Log-in Demo" width="350" />
+<img src="https://github.com/Lukoh/WeatherBox/blob/master/Screenshot_9.png" alt="Log-in Demo" width="350" />
 
 ## Libraries
 
