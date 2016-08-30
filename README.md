@@ -12,6 +12,23 @@ WeatherBox use CustomTab to show the weather information of cities around world.
 
 [Yahoo open Weather API](https://developer.yahoo.com/weather/) and [Yahoo YQL GE0](https://developer.yahoo.com/geo/geoplanet/guide/yql-tables.html) are used into WeatherBox.  
 
+##Screenshots
+<img src="https://github.com/Lukoh/WeatherBox/blob/master/Screenshot_1.png" alt="Log-in Demo" width="350" />
+&nbsp;
+<img src="https://github.com/Lukoh/WeatherBox/blob/master/Screenshot_2.png" alt="Log-in Demo" width="350" />
+&nbsp;
+<img src="https://github.com/Lukoh/WeatherBox/blob/master/Screenshot_3.png" alt="Log-in Demo" width="350" />
+&nbsp;
+<img src="https://github.com/Lukoh/WeatherBox/blob/master/Screenshot_4.png" alt="Log-in Demo" width="350" />
+&nbsp;
+<img src="https://github.com/Lukoh/WeatherBox/blob/master/Screenshot_5.png" alt="Log-in Demo" width="350" />
+&nbsp;
+<img src="https://github.com/Lukoh/WeatherBox/blob/master/Screenshot_6.png" alt="Log-in Demo" width="350" />
+&nbsp;
+<img src="https://github.com/Lukoh/WeatherBox/blob/master/Screenshot_7.png" alt="Log-in Demo" width="350" />
+&nbsp;
+<img src="https://github.com/Lukoh/WeatherBox/blob/master/Screenshot_8.png" alt="Log-in Demo" width="350" />
+
 ## Libraries
 
 This app leverages third-party libraries:
