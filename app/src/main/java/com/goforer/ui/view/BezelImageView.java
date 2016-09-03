@@ -239,7 +239,6 @@ public class BezelImageView extends ImageView {
         isPressed = isPressed();
     }
 
-
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         // Check for clickable state and do nothing if disabled
